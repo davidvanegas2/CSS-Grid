@@ -1,0 +1,119 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 40px;
+    padding: 0.5em;
+    border-bottom: 1px solid #DBDBDB;
+    align-items: center;
+    justify-items: center;
+}
+.logo{
+    margin: 0;
+    padding-top: 10px;
+}
+.search{
+    height: 20px;
+    width: 50%;
+    text-align: center;
+    box-sizing: content-box;
+    border: 1px solid #DBDBDB;
+    border-radius: 5px;
+}
+.perfil img{
+    width: 30px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+.navbar > * {
+    margin: 0 0.5em;
+}
+
+.datos-perfil{
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+    grid-template-areas: "foto-perfil nombre-usuario editar-perfil settings"
+                         "foto-perfil publicaciones seguidores seguidos"
+                         "foto-perfil biografia vacio vacio";
+    margin: 0px 190px;
+}
+.foto-perfil{
+    grid-area: foto-perfil;
+    justify-self: center;
+    align-self: center;
+}
+.nombre-perfil{
+    grid-area: nombre-usuario;
+    justify-self: center;
+    align-self: end;
+}
+.editar-perfil{
+    width: 50%;
+    height: 2em;
+    background-color: transparent;
+    border: 1px solid #DBDBDB;
+    justify-self: center;
+    align-self: end;
+    margin-bottom: 18.720px;
+    cursor: pointer;
+}
+.settings{
+    align-self: end;
+    margin-bottom: 18.720px;
+}
+/* .datos-perfil > *{ Especifica las reglas de todos los hijos de un div
+    border: 1px solid red;
+} */
+
+.post-list{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 300px));
+    gap: 28px;
+    justify-content: center;
+}
+.post{
+    cursor: pointer; /* Esto se hace con el fin de cambiar el cursor cuando estoy encima del objeto */
+    position: relative;
+    display: block;
+}
+.post-image{
+    margin: 0;
+}
+.post-image img{
+    width: 100%;
+    height: 240px;
+    object-fit: fill; /* Arreglar como esta una imagen dentro de un marco */
+}
+.post-overlay{
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.post:hover .post-overlay{
+    display: flex;
+}
+.post-likes,
+.post-comments{
+    width: 80px;
+    margin: 1.5em;
+    font-weight: bold;
+    /* display: inline-block; */
+}
+
+@media screen and (max-width: 768px){
+    .post-list{
+        gap: 3px;
+    }
+}
